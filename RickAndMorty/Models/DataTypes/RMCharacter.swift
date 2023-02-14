@@ -22,18 +22,35 @@ struct RMCharacter: Codable {
     let created: String
 }
 
-//TODO: - move the following to files of their own.
 enum RMCharacterStatus: String, Codable {
-    case alive = "Alive"
-    case dead = "Dead"
-    case `unknown` = "Unknown"
+    case Alive = "Alive"
+    case Dead = "Dead"
+    case `unknown` = "unknown"
+    
+    var text : String {
+        switch self {
+        case .Alive, .Dead:
+            return rawValue
+        case .unknown:
+            return "Unknown"
+        }
+    }
 }
 
 enum RMCharacterGender: String, Codable {
-    case male = "Male"
-    case female = "Female"
-    case genderless = "GenderLess"
-    case `unknown` = "Uknown"
+    case Male = "Male"
+    case Female = "Female"
+    case Genderless = "GenderLess"
+    case `unknown` = "unknown"
+    
+    var text : String {
+        switch self {
+        case .Male, .Female, .Genderless:
+            return rawValue
+        case .unknown:
+            return "Unknown"
+        }
+    }
 }
 
 struct RMOrigin: Codable {
