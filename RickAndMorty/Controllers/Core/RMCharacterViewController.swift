@@ -9,14 +9,18 @@ import UIKit
 
 /// Controller to show and search for Characters
 final class RMCharacterViewController: UIViewController {
-
-    private let characterListView = CharacterListView()
+    
+    private let characterListView = RMCharacterListView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         title = "Characters"
+        setUpView()
+    }
+    
+    private func setUpView() {
         view.addSubview(characterListView)
         // how to make sizing right in all screens:
         NSLayoutConstraint.activate([
@@ -25,7 +29,5 @@ final class RMCharacterViewController: UIViewController {
             characterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-
     }
-
 }
